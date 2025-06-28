@@ -1,0 +1,29 @@
+# HTTP Virtual Host
+<VirtualHost *:80>
+    ServerName localhost
+    DocumentRoot /root/api          
+    
+    <Directory /root/api>
+        AllowOverride All
+        Require all granted
+    </Directory>
+</VirtualHost>
+
+# HTTPS Virtual Host (dormant until certificates exist)
+<IfModule mod_ssl.c>
+<IfFile /etc/letsencrypt/live/*/fullchain.pem>
+<VirtualHost *:443>
+    ServerName localhost
+    DocumentRoot /root/api          
+    
+    SSLEngine on
+    SSLCertificateFile /etc/letsencrypt/live/localhost/fullchain.pem
+    SSLCertificateKeyFile /etc/letsencrypt/live/localhost/privkey.pem
+    
+    <Directory /root/api>
+        AllowOverride All
+        Require all granted
+    </Directory>
+</VirtualHost>
+</IfFile>
+</IfModule>
