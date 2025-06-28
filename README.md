@@ -1,4 +1,4 @@
-#LAMP Stack Infrastructure with Load Balancer
+# LAMP Stack Infrastructure with Load Balancer
 
 **One-click deployment** of a complete LAMP (Linux, Apache, MySQL, PHP) stack on DigitalOcean with load balancing and database clustering.
 
