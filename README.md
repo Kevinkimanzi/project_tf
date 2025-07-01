@@ -143,17 +143,17 @@ EOF
 ### Test Your Application
 
 ```bash
-# Get load balancer IP
+# Get load balancer IP port is 80
 LB_IP=$(terraform output -raw load_balancer_ip)
 
 # Test main page
-curl http://$LB_IP/
+curl http://$LB_IP/80
 
-# Test a specific PHP file
-curl http://$LB_IP/your-file.php
+# Test a specific port
+curl http://$LB_IP/80
 
 # Test with headers to see which server responds
-curl -I http://$LB_IP/
+curl -I http://$LB_IP/80
 ```
 
 ---
